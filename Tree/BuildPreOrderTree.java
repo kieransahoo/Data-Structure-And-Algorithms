@@ -172,15 +172,15 @@ public class BuildPreOrderTree {
 
         BinaryTree tree = new BinaryTree();
         Node root = tree.buildTree(nodes);
-        //System.out.println(root.right.data);
-        //preOrder(root);
-        //inOrder(root);
-        //postOrder(root);
-        //levelOrder(root);
+        //System.out.println(root.right.data);//(O(n) time complexity)
+        //preOrder(root);//(O(n) time complexity)
+        //inOrder(root);//(O(n) time complexity)
+        //postOrder(root);//(O(n) time complexity)
+        //levelOrder(root);//(O(n) time complexity)
         System.out.println(countOfNodes(root));
         System.out.println(sumOfNodes(root));
         System.out.println(height(root));
-        System.out.println(diameter(root));
-        System.out.println(diameter2(root).diam);
+        System.out.println(diameter(root)); // O(n^2 time complexity)
+        System.out.println(diameter2(root).diam);//(O(n) time complexity)
     }
 }
