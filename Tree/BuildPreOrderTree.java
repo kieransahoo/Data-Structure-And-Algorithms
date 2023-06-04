@@ -167,6 +167,34 @@ public class BuildPreOrderTree {
         return myInfo;
     }
 
+
+    public boolean isIdentical(TreeNode root,TreeNode subRoot){
+        if(subRoot == null && root == null){
+            return true;
+        }
+        if(root == null || subRoot == null){
+            return false;
+        }
+        if(root.val == subRoot.val){
+            return isIdentical(root.left, subRoot.left) && isIdentical(root.right, subRoot.right);
+        }
+        return false;
+    }
+   
+    public boolean isSubtree(TreeNode root, TreeNode subRoot) {
+        if(subRoot == null){
+            return true;
+        }
+        if(root == null){
+            return false;
+        }
+        if(isIdentical(root, subRoot)){
+            return true;
+        }
+        return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
+    }
+ 
+
     public static void main(String[] args){
         int[] nodes = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1,6,-1,-1};
 
@@ -183,4 +211,5 @@ public class BuildPreOrderTree {
         System.out.println(diameter(root)); // O(n^2 time complexity)
         System.out.println(diameter2(root).diam);//(O(n) time complexity)
     }
+    
 }
